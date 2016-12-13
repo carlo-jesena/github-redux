@@ -2,6 +2,8 @@ import React from 'react';
 import Repository from './repo';
 import {connect} from 'react-redux';
 
+import * as actions from '../actions/index-actions';
+
 export class RepositoryList extends React.Component {
 	constructor (props) {
 		super(props);
@@ -11,7 +13,7 @@ export class RepositoryList extends React.Component {
 	addRepository () {
 		const repositoryName = this.repositoryNameInput.value;
 		// Add repo to the state
-		this.props.dispatch(actions.addRepository(repositoryName));
+		this.props.dispatch(actions.addRepo(repositoryName));
 	}
 
 	render() {
