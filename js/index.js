@@ -1,13 +1,11 @@
 require('babel-polyfill');
-import * as actions from './actions/index-actions';
-import store from './store';
-//
-// console.log(actions);
+import React from 'react';
+import ReactDOM from 'react-dom';
+import RepositoryList from './components/repo-list';
 
-store.dispatch(actions.addRepo('que tal'));
-store.dispatch(actions.addRepo('comment ca-va'));
-store.dispatch(actions.addRepo('ki dayra'));
-store.dispatch(actions.rateRepo(
-	1, 'VERY NICE WELL DONE'));
-
-console.log(store.getState());
+document.addEventListener('DOMContentLoaded', () => {
+	return ReactDOM.render(
+		<RepositoryList />,
+		document.getElementById('app')
+	);
+})
