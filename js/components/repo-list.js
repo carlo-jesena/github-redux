@@ -1,7 +1,7 @@
 import React from 'react';
 import Repository from './repo';
 
-export default class RepositoryList extends React.Component {
+export class RepositoryList extends React.Component {
 	constructor (props) {
 		super(props);
 		this.addRepository = this.addRepository.bind(this);
@@ -10,6 +10,7 @@ export default class RepositoryList extends React.Component {
 	addRepository () {
 		const repositoryName = this.repositoryNameInput.value;
 		// Add repo to the state
+		this.props.dispatch(actions.addRepository(repositoryName));
 	}
 
 	render() {
@@ -27,6 +28,10 @@ export default class RepositoryList extends React.Component {
 			</div>
 		)
 	}
-
-
 }
+
+const mapStateToProps = (state, props) => ({
+	repositories:state
+});
+
+export default connect(mapStateToProps)(RepositoryList);
