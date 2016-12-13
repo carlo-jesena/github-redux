@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import StarRater from './star-rater';
-import * as actions from '../actions/index';
+import * as actions from '../actions/index-actions';
 
 export class Repository extends React.Component {
 	constructor (props) {

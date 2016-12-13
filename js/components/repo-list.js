@@ -1,5 +1,6 @@
 import React from 'react';
 import Repository from './repo';
+import {connect} from 'react-redux';
 
 export class RepositoryList extends React.Component {
 	constructor (props) {
@@ -33,5 +34,4 @@ export class RepositoryList extends React.Component {
 const mapStateToProps = (state, props) => ({
 	repositories:state
 });
-
 export default connect(mapStateToProps)(RepositoryList);

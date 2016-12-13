@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	return ReactDOM.render(
 		<Provider store = {store}>
 			<RepositoryList />
-		</Provider>
+		</Provider>,
 		document.getElementById('app')
 	)
 });
