@@ -6,19 +6,23 @@ import * as actions from '../actions/index-actions';
 
 export class RepositoryList extends React.Component {
 	constructor (props) {
+		console.log('props in repo-list', props);
 		super(props);
 		this.addRepository = this.addRepository.bind(this);
 	}
 
 	addRepository () {
+		console.log('repo added at repo-list.js');
 		const repositoryName = this.repositoryNameInput.value;
-		// Add repo to the state
 		this.props.dispatch(actions.addRepo(repositoryName));
 	}
 
 	render() {
+		let key = 0;
 		const repositories = this.props.repositories.map(repository => {
-			return <Repository repository={repository} key={repository.name} />
+			return <Repository
+				repository={repository}
+				key={key++} />
 		});
 
 		return (
@@ -34,6 +38,6 @@ export class RepositoryList extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-	repositories:state
+	repositories: state
 });
 export default connect(mapStateToProps)(RepositoryList);

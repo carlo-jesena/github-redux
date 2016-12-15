@@ -11,9 +11,9 @@ export class Repository extends React.Component {
 	}
 
 	changeRating(rating) {
-		// Change the rating
+		console.log('rating changed at repo.js');
 		this.props.dispatch(
-			actions.rateRepository(this.props.repository.name, rating)
+			actions.rateRepo(this.props.repository.name, rating)
 		);
 	}
 

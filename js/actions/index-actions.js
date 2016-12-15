@@ -14,6 +14,5 @@ export const addRepo = (repo) => ({
 
 export const rateRepo = (id, rating) => ({
 	type: RATE_REPO,
-	id,
 	rating
 });
