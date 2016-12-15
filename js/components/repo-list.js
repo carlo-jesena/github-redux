@@ -6,13 +6,11 @@ import * as actions from '../actions/index-actions';
 
 export class RepositoryList extends React.Component {
 	constructor (props) {
-		console.log('props in repo-list', props);
 		super(props);
 		this.addRepository = this.addRepository.bind(this);
 	}
 
 	addRepository () {
-		console.log('repo added at repo-list.js');
 		const repositoryName = this.repositoryNameInput.value;
 		this.props.dispatch(actions.addRepo(repositoryName));
 	}
@@ -20,15 +18,18 @@ export class RepositoryList extends React.Component {
 	render() {
 		let key = 0;
 		const repositories = this.props.repositories.map(repository => {
-			return <Repository
-				repository={repository}
-				key={key++} />
+			return (
+				<Repository
+					repository={repository}
+					key={key++}
+				/>
+			)
 		});
 
 		return (
 			<div className="repository-list">
 				{repositories}
-				<input type="text" ref={ref => this.repositoryNameInput = ref} /> {/* ??? */}
+				<input type="text" ref={ref => this.repositoryNameInput = ref} />
 				<button type="button" onClick={this.addRepository}>
 					Add Repository
 				</button>
